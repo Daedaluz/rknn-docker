@@ -10,5 +10,6 @@ The app has to be hosted over tls / ssl because the use of getUserMedia api.
 docker run --rm -ti --privileged \
             -v /dev/dri/renderD129:/dev/dri/renderD129 \
             -v /proc/device-tree/compatible:/proc/device-tree/compatible \
+            -p 8000:8000 \
             ghcr.io/daedaluz/rknn-sample-app
 ```
