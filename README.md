@@ -3,7 +3,6 @@
 This repository contains a number of docker images ranging from small, base images only containing the runtime library to
 demo containers that are able to run either the python demos or a pre-compiled yolov5 example
 
-
 Todo: add containers for converting and working with the rknn models
 
 ## ghcr.io/daedaluz/rknn-runtime
@@ -26,8 +25,8 @@ On RK3588
 
 ``` bash
 docker run --rm -ti --privileged \
-            -v /dev:/dev \
-            -v /proc/device-tree:/proc/device-tree \
+            -v /dev/dri/renderD129:/dev/dri/renderD129 \
+            -v /proc/device-tree/compatible:/proc/device-tree/compatible \
             ghcr.io/daedaluz/rknn-lite-demo
 ```
 
@@ -46,8 +45,8 @@ On RK3588
 
 ``` bash
 docker run --rm -ti --privileged \
-            -v /dev:/dev \
-            -v /proc/device-tree:/proc/device-tree \
+            -v /dev/dri/renderD129:/dev/dri/renderD129 \
+            -v /proc/device-tree/compatible:/proc/device-tree/compatible \
             ghcr.io/daedaluz/rknn-yolov5-demo
 ```
 
@@ -75,5 +74,9 @@ bus @ (94 129 553 468) 0.705055
 person @ (79 354 122 516) 0.339254
 save detect result to ./out.jpg
 loop count = 10 , average run  23.933400 ms
-
 ```
+
+
+## ghcr.io/daedaluz/rknn-sample-app
+
+See [sample-app readme](sample-app/README.md)
